@@ -1,6 +1,5 @@
 #!name = Q-Search
 #!desc = Browser Search Add-ons
-#!system = ios
 
 [URL Rewrite]
 # > 网站
