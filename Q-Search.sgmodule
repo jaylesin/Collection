@@ -104,7 +104,7 @@
 # bd: 百度
 ^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
 
-# dd: DuckDuckGo 
+# dd: DuckDuckGo
 ^https:\/\/duckduckgo.com\/\?q=dd\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$1 302
 
 # 无指令: 谷歌
