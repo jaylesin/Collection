@@ -1,0 +1,39 @@
+#!name = General
+#!desc = 常规模块
+
+[URL Rewrite]
+^http:\/\/jaylesin\.xyz\/ https://jaylesin.xyz/ 302
+
+[Script]
+# BoxJs
+Rewrite: BoxJs = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
+
+# Sub-Store 订阅管理
+Sub-Store = type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/backend/sub-store.min.js,requires-body=true,timeout=120,max-size=131072
+
+# JingDong Price
+http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js
+
+# TaoBao Price
+http-request ^http://.+/amdc/mobileDispatch requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js
+http-response ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js
+
+# Fake VIP
+# ColorWeather
+Color Weather = type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,requires-body=1,max-size=0,script-path=ColorWeather.js,script-update-interval=0
+
+# Documents
+Documents = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.*\/documents\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Quantumult-X-LK/master/Scripts/langkhach/documents.js,script-update-interval=0
+
+# MiMo
+MiMo = type=http-response,pattern=^https:\/\/api\.getmimo\.com\/v1\/subscriptions$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Scripting/master/mimo.vip.js,script-update-interval=0
+
+# 网络状态
+net-info-panel=script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js,type=generic
+
+[Panel]
+net-info-panel=title="网络状态",content="请刷新",style=info,script-name=net-info-panel
+
+
+[MITM]
+hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, draw.jdfcloud.com, jdjoy.jd.com
