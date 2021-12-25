@@ -5,7 +5,7 @@
 # BoxJs
 Rewrite: BoxJs = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 
-# Sub-Store 订阅管理
+# Sub-Store
 Sub-Store = type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/backend/sub-store.min.js,requires-body=true,timeout=120,max-size=131072
 
 # JD Price
@@ -29,13 +29,13 @@ MiMo = type=http-response,pattern=^https:\/\/api\.getmimo\.com\/v1\/subscription
 Wps = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js,type=http-response,pattern=^https?:\/\/account\.wps\.com\/api\/users
 
 # 网络状态
-net-info-panel=script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js,type=generic
+NetInfo=script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js,type=generic
 
 [URL Rewrite]
 ^http:\/\/jaylesin\.xyz\/ https://jaylesin.xyz/ 302
 
 [Panel]
-Net-Info-Panel=title="网络状态",content="请刷新",style=info,script-name=net-info-panel
+NetInfo=title="网络状态",content="请刷新",style=info,script-name=NetInfo
 
 [MITM]
 hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, account.wps.com
