@@ -14,28 +14,20 @@ JD Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahu
 # TB Price
 TB Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-request,pattern=^http://.+/amdc/mobileDispatch,max-size=0,script-update-interval=0
 TB Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-response,pattern=^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail,max-size=0,script-update-interval=0
-<<<<<<< HEAD
 
 # 微信公众号文章底部广告
 WeChat = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,script-update-interval=0
-=======
->>>>>>> 480496ef55d665c75e0ea0d786938770ee41ee5e
 
 # Fake VIP
 # > ColorWeather
 Color Weather = type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,requires-body=1,max-size=0,script-path=ColorWeather.js,script-update-interval=0
 
 # > Documents
-<<<<<<< HEAD
 Documents-PdfExpert = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.+\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/pdfexpert.js,script-update-interval=-1
-=======
-Documents = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.*\/documents\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/documents.js,script-update-interval=0
->>>>>>> 480496ef55d665c75e0ea0d786938770ee41ee5e
 
 # > MiMo
 MiMo = type=http-response,pattern=^https:\/\/api\.getmimo\.com\/v1\/subscriptions$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/mimo.js,script-update-interval=0
 
-<<<<<<< HEAD
 # > 扫描全能王
 CamScanners = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js,type=http-response,pattern=https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?,script-update-interval=0
 
@@ -54,22 +46,3 @@ NetInfo=title="NetInfo",content="请刷新",style=info,script-name=NetInfo
 
 [MITM]
 hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, mp.weixin.qq.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, sg-account.wps.com
-=======
-# > WPS
-WPS = requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js,type=http-response,pattern=^https?:\/\/account\.wps\.com\/api\/users
-
-# 去除公众号文章底部广告
-WeChat = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,script-update-interval=0
-
-# 网络状态
-NetInfo=script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js,type=generic
-
-[URL Rewrite]
-^http:\/\/jaylesin\.xyz\/ https://jaylesin.xyz/ 302
-
-[Panel]
-NetInfo=title="网络状态",content="请刷新",style=info,script-name=NetInfo
-
-[MITM]
-hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, account.wps.com, mp.weixin.qq.com
->>>>>>> 480496ef55d665c75e0ea0d786938770ee41ee5e
