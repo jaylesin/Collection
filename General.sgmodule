@@ -8,12 +8,12 @@ BoxJs = type=http-request,pattern=^https?://boxjs.net,script-path=https://raw.gi
 # Sub-Store
 Sub-Store = type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/backend/sub-store.min.js,requires-body=true,timeout=120,max-size=131072
 
-# JD Price
-JD Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js,type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),max-size=0,script-update-interval=0
+# JingDong Price
+JingDong Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js,type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),max-size=0,script-update-interval=0
 
-# TB Price
-TB Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-request,pattern=^http://.+/amdc/mobileDispatch,max-size=0,script-update-interval=0
-TB Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-response,pattern=^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail,max-size=0,script-update-interval=0
+# TaoBao Price
+TaoBao Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-request,pattern=^http://.+/amdc/mobileDispatch,max-size=0,script-update-interval=0
+TaoBao Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-response,pattern=^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail,max-size=0,script-update-interval=0
 
 # 微信公众号文章底部广告
 WeChat = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,script-update-interval=0
@@ -38,11 +38,11 @@ WPS = requires-body=1,max-size=-s1,script-path=https://raw.githubusercontent.com
 # > NetInfo
 NetInfo=script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js,type=generic
 
-[URL Rewrite]
-^http:\/\/jaylesin\.xyz\/ https://jaylesin.xyz/ 302
-
 [Panel]
 NetInfo=title="NetInfo",content="请刷新",style=info,script-name=NetInfo
+
+[URL Rewrite]
+^http:\/\/jaylesin\.xyz\/ https://jaylesin.xyz/ 302
 
 [MITM]
 hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, mp.weixin.qq.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, sg-account.wps.com
