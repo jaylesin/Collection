@@ -32,7 +32,7 @@ MiMo = type=http-response,pattern=^https:\/\/api\.getmimo\.com\/v1\/subscription
 CamScanners = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js,type=http-response,pattern=https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?,script-update-interval=0
 
 # > WPS
-WPS = requires-body=1,max-size=-s1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js,type=http-response,pattern=^https?:\/\/account\.wps\.com\/api\/users,script-update-interval=0
+http-response ^https?:\/\/[a-z-]*account\.wps\.c(n|om)(:\d+|)\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js
 
 # > Emby
 Emby = type=http-response,pattern=^https:\/\/mb3admin\.com\/admin\/service(\/registration\/validateDevice|\/appstore\/register|\/registration\/validate|\/registration\/getStatus|\/supporter\/retrievekey),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/toulanboy/scripts/master/emby/js/emby_unlock.js
@@ -160,4 +160,4 @@ NetInfo=title="NetInfo",content="请刷新",style=info,script-name=NetInfo
 ^https:\/\/duckduckgo.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 302
 
 [MITM]
-hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, mp.weixin.qq.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, account.wps.com, mb3admin.com, duckduckgo.com
+hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, mp.weixin.qq.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, *account.wps.cn, *account.wps.com, mb3admin.com, duckduckgo.com
