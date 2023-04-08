@@ -1,50 +1,76 @@
 #!name = Main
-#!desc = 常规配置
+#!desc = Main Configuration
+
+[General]
+force-http-engine-hosts = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net
 
 [Script]
 # BoxJs
-BoxJs = type=http-request,pattern=https?:\/\/boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
+BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 
 # Sub-Store
 Sub-Store Core=type=http-request,pattern=^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))),script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js,requires-body=true,timeout=120,ability=http-client-policy
 Sub-Store Simple=type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js,requires-body=true
+
 Sub-Store Sync=type=cron,cronexp=0 0 * * *,wake-system=1,timeout=120,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
 
 # JingDong Price
-# JingDong Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js,type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),max-size=0,script-update-interval=0
+#JingDong Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js,type=http-response,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),max-size=0,script-update-interval=0
 
 # TaoBao Price
 TaoBao Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-request,pattern=^http://.+/amdc/mobileDispatch,max-size=0,script-update-interval=0
 TaoBao Price = requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js,type=http-response,pattern=^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail,max-size=0,script-update-interval=0
 
-# 微信公众号文章底部广告
+# 微信公众号文章广告
 WeChat = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,script-update-interval=0
+
+# 淘票票豆瓣评分
+TaoPiaoPiao=type=http-response, requires-body=1, pattern=^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopshowapi\.getextendshowbyid, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Rewrites/TaoPiaoPiao/taopiaopiao.js
+
+# 取消绑定京东店铺会员。点击会员卡直达注销页面
+#^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
 
 # Fake VIP
 # > ColorWeather
-Color Weather = type=http-response,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,requires-body=1,max-size=0,script-path=ColorWeather.js,script-update-interval=0
+Weather = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/biz\.caiyunapp\.com\/v2\/user\?app_name\=weather,script-path=https://raw.githubusercontent.com/Maasea/surgeModule/master/Script/Weather/weather.js
 
 # > Documents
-Documents-PdfExpert = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.+\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/pdfexpert.js,script-update-interval=-1
+Documents-PdfExpert = type=http-response,pattern=^https:\/\/license\.pdfexpert\.com\/api\/.+\/subscription\/(refresh$|check$),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/pdfexpert.js,script-update-interval=0
 
 # > MiMo
 MiMo = type=http-response,pattern=^https:\/\/api\.getmimo\.com\/v1\/subscriptions$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/mimo.js,script-update-interval=0
 
 # > 扫描全能王
-CamScanners = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js,type=http-response,pattern=https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\?,script-update-interval=0
+CamScanners = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js,type=http-response,pattern=https:\/\/(api|api-cs|api-cs-cn)\.intsig\.net\/purchase\/cs\/query_property\?,script-update-interval=0
 
 # > WPS
 http-response ^https?:\/\/[a-z-]*account\.wps\.c(n|om)(:\d+|)\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Wps.js
 
 # > Emby
-Emby = type=http-response,pattern=^https:\/\/mb3admin\.com\/admin\/service(\/registration\/validateDevice|\/appstore\/register|\/registration\/validate|\/registration\/getStatus|\/supporter\/retrievekey),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/toulanboy/scripts/master/emby/js/emby_unlock.js
+EmbyPremiere = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/rartv/SurgeScript/main/EmbyPremiere/EmbyPremiere.js
+
+# > 百度网盘
+http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js
+
+阿里云盘首页简化 = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/apps\/v1\/users\/home\/widgets, requires-body=1,script-path=mock.js, argument=("?items")->$1:null，，"test"&("?recentUsed")->$1:null，，"test1"
+
+阿里云盘vip = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/business\/v1\.0\/users\/vip/info, requires-body=1,script-path=mock.js, argument=("?vipList")->$1: [{"code": "svip.20t"，， "promotedAt": 1675574551，， "expire": 4077667351，， "name": "8TB超级会员"} ]，，"test"&("?level")\s?:\s?("(.+?)"|\d|null)->$1: "20t"&("?name")\s?:\s?("(.+?)"|\d|null)->$1: "20T超级会员"
+
+阿里云盘vip容量和限制 = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/v2\/databox\/get_personal_info, requires-body=1,script-path=mock.js, argument=("?total_size")\s?:\s?("(.+?)"|\d|null)->$1: 1125888647843555573.76&("?spu_id")\s?:\s?("(.+?)"|\d|null)->$1: "svip"&("?name")\s?:\s?("(.+?)"|\d|null)->$1: "超级会员"&("?is_expires")\s?:\s?("(.+?)"|\d|null)->$1: false&("?clarity_limit")->"test"，，"quota": 3}，，{"feature_id": "video"，，"feature_attr_id": "clarity_limit"，，"quota": -1}，，{"feature_id": "video"，，"feature_attr_id": "test"
+
+阿里云盘vip容量和限制1 = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/adrive\/v1\/user\/driveCapacityDetails, requires-body=1,script-path=mock.js, argument=("?drive_total_size")\s?:\s?("(.+?)"|\d|null)->$1: 1125888647843555573.76
+
+阿里云盘vip容量明细 = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/adrive\/v1\/user\/capacityDetails, requires-body=1,script-path=mock.js, argument=("?expired")\s?:\s?("(.+?)"|\d|null)->$1: "permanent"&("?size")\s?:\s?("(.+?)"|\d|null)->$1: 1125888647843555573.76
+
+阿里云盘vip描述 = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/business\/v1\/users\/me\/vip\/info, requires-body=1,script-path=mock.js, argument=("?description")\s?:\s?("(.+?)"|\d|null)->$1: "永久有效"&("?rightButtonText")\s?:\s?("(.+?)"|\d|null)->$1: "还续撒费"&("?level")\s?:\s?("(.+?)"|\d|null)->$1: "20t"
+
+#阿里云盘图标自定义 = type=http-response,pattern=https:\/\/api\.aliyundrive\.com\/adrive\/v1\/app\/logos, requires-body=1,script-path=mock.js, argument=("?labelCode")\s?:\s?("(.+?)"|\d|null)->$1: "acquired"
+#&("?code")\s?:\s?("(.+?)"|\d|null)->$1: "2023-jan-daily-checkin"
+
 
 # Panel
 # > NetInfo
 NetInfo=script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js,type=generic
-
-[General]
-force-http-engine-hosts = %APPEND% boxjs.com, boxjs.net
 
 [Panel]
 NetInfo=title="NetInfo",content="请刷新",style=info,script-name=NetInfo
@@ -162,4 +188,4 @@ NetInfo=title="NetInfo",content="请刷新",style=info,script-name=NetInfo
 ^https:\/\/duckduckgo.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 302
 
 [MITM]
-hostname = %APPEND% sub.store, api.m.jd.com, trade-acs.m.taobao.com, mp.weixin.qq.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, *account.wps.cn, *account.wps.com, mb3admin.com, duckduckgo.com
+hostname = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, sub.store, api.m.jd.com, trade-acs.m.taobao.com, mp.weixin.qq.com, guide-acs.m.taobao.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, *account.wps.cn, *account.wps.com, mb3admin.com, pan.baidu.com, duckduckgo.com, api.aliyundrive.com
