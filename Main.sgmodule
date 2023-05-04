@@ -26,9 +26,6 @@ Sub-Store Sync=type=cron,cronexp=0 0 * * *,wake-system=1,timeout=120,script-path
 # 微信公众号文章广告
 WeChat = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,script-update-interval=0
 
-# 淘票票豆瓣评分
-TaoPiaoPiao=type=http-response, requires-body=1, pattern=^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopshowapi\.getextendshowbyid, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Rewrites/TaoPiaoPiao/taopiaopiao.js
-
 # 取消绑定京东店铺会员。点击会员卡直达注销页面
 #^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
 
@@ -190,4 +187,4 @@ NetInfo=title="NetInfo",content="请刷新",style=info,script-name=NetInfo
 ^https:\/\/duckduckgo.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 302
 
 [MITM]
-hostname = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, sub.store, mp.weixin.qq.com, guide-acs.m.taobao.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, *account.wps.cn, *account.wps.com, mb3admin.com, pan.baidu.com, duckduckgo.com, api.aliyundrive.com
+hostname = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, sub.store, mp.weixin.qq.com, biz.caiyunapp.com, license.pdfexpert.com, api.getmimo.com, ap*.intsig.net, *account.wps.cn, *account.wps.com, mb3admin.com, pan.baidu.com, api.aliyundrive.com, duckduckgo.com
