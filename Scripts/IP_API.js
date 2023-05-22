@@ -143,19 +143,11 @@ var body = $response.body
 var obj = JSON.parse(body)
 
 var title = flags.get(obj['countryCode']) + ' ' + City_ValidCheck(obj['city'])
-var subtitle =
-  ISP_ValidCheck(obj['org']) + ' ➠ ' + City_ValidCheck(obj['region'])
+var subtitle = ISP_ValidCheck(obj['org']) + ' ➠ ' + City_ValidCheck(obj['region'])
 var ip = obj['query']
 var description =
-  'Server: ' +
-  obj['isp'] +
-  '\n' +
-  'Region: ' +
-  City_ValidCheck(obj['regionName']) +
-  '\n' +
-  'IP: ' +
-  obj['query'] +
-  '\n' +
-  'Time Zone: ' +
-  obj['timezone']
+    'Server: ' + obj['isp'] + '\n' +
+    'Region: ' + City_ValidCheck(obj['regionName']) + '\n' +
+    'IP: ' + obj['query'] + '\n' +
+    'Time Zone: ' + obj['timezone']
 $done({ title, subtitle, ip, description })
