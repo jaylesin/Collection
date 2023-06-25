@@ -45,9 +45,7 @@ http://10.10.10.250:8688/udp/239.45.3.210:5140
 http://10.10.10.250:8688/udp/239.45.3.237:5140
 #EXTINF: -1 tvg-id="shenghuoshishang" tvg-name="生活时尚" tvg-logo="http://epg.51zmt.top:8000/tb1/qt/shenghuoshishang.png" group-title="上海文广", 生活时尚「高清」
 http://10.10.10.250:8688/udp/239.45.3.132:5140
-#EXTINF: -1 tvg-id="jishipindao" tvg-name="上海纪实" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/shanghaijishi.png" group-title="上海文广", 上海纪实「高清」
-http://10.10.10.250:8688/udp/239.45.3.212:5140
-#EXTINF: -1 tvg-name="纪实人文" group-title="上海文广", 纪实人文「高清」
+#EXTINF: -1 tvg-id="shanghaijishirenwen" tvg-name="上海纪实人文" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/shanghaijishi.png" group-title="上海文广", 纪实人文「高清」
 http://10.10.10.250:8688/udp/239.45.3.212:5140
 #EXTINF: -1 tvg-id="xdkt" tvg-name="炫动卡通" group-title="上海文广", 哈哈炫动卡通「高清」
 http://10.10.10.250:8688/udp/239.45.1.55:5140
