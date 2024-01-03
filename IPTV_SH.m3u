@@ -1,4 +1,4 @@
-#EXTM3U name="上海电信IPTV组播节目单"
+#EXTM3U name="上海电信 IPTV 组播节目单"
 #EXTINF: -1 tvg-id="cctv-1" tvg-name="CCTV1" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" group-title="央视频道", CCTV-1 综合「高清」
 http://10.10.10.253:8688/udp/239.45.3.145:5140
 #EXTINF: -1 tvg-id="cctv-2" tvg-name="CCTV2" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV2.png" group-title="央视频道", CCTV-2 经济「高清」
