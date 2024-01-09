@@ -31,7 +31,7 @@ http://10.10.10.253:8688/udp/239.45.1.198:5140
 http://10.10.10.253:8688/udp/239.45.3.23:5140
 #EXTINF: -1 tvg-id="cctv-15" tvg-name="CCTV15" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV15.png" group-title="央视频道", CCTV-15 音乐「标清」
 http://10.10.10.253:8688/udp/239.45.1.200:5140
-#EXTINF: -1 tvg-id="cctv-16" tvg-name="CCTV16" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png" group-title="央视频道", CCTV-16 奥林匹克频道「4K」
+#EXTINF: -1 tvg-id="cctv-16" tvg-name="CCTV16" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV16.png" group-title="央视频道", CCTV-16 奥林匹克「4K」
 http://10.10.10.253:8688/udp/239.45.1.21:5140
 #EXTINF: -1 tvg-id="cctv-17" tvg-name="CCTV17" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV17.png" group-title="央视频道", CCTV-17 农业农村「高清」
 http://10.10.10.253:8688/udp/239.45.3.52:5140
